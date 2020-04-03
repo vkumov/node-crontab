@@ -54,6 +54,7 @@ declare module "crontab" {
   export class CronJob {
     public isValid(): boolean;
     public render(): string;
+    public renderTime(): string;
     public clear(): void;
     public minute(): TimeSlot | null;
     public hour(): TimeSlot | null;
