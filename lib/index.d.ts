@@ -84,6 +84,9 @@ declare module "crontab" {
   export class CronTab {
     constructor(user: string, file: string, cb: Callback);
     public jobs(options?: JobsOptions): CronJob[];
+    public pausedJobs(): CronJob[];
+    public pauseJob(job: CronJob): boolean;
+    public activateJob(job: CronJob): boolean;
     public find(options?: JobsOptions): CronJob[];
     public vars(options?: VarsOptions | string): CronVar[];
     public save(cb?: Callback): void;
@@ -94,7 +97,7 @@ declare module "crontab" {
       comment?: string
     ): CronJob | null;
     public parse(line: string): CronJob | null;
-    public remove(jobs: CronJob[]): void;
+    public remove(jobs: CronJob[]): boolean;
     public reset(): void;
   }
 
